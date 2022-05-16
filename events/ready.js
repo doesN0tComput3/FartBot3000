@@ -5,7 +5,7 @@ module.exports = {
 	name: 'ready',
 	once: true,
 	execute(client) {
-		console.log('rEADY');
+		console.log('HI');
 
 		setInterval(function () {
 			const statusType = Math.floor(Math.random() * (6 - 1 + 1) + 1);
