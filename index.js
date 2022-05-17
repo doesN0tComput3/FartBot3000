@@ -1,11 +1,11 @@
 // FartBot3000.
 // Define packages
 const { Intents, Client, Collection } = require('discord.js');
-const Discord = require('discord.js');
 const dotenv = require('dotenv');
 dotenv.config();
 const fs = require('node:fs');
 const path = require('node:path');
+const { Player } = require('discord-player');
 
 // Create the bot, commands, and find the commands
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.DIRECT_MESSAGES, Intents.FLAGS.GUILD_VOICE_STATES] });
@@ -19,6 +19,13 @@ for (const file of commandFiles) {
 
 	client.commands.set(command.data.name, command);
 }
+
+client.player = new Player(client, {
+	ytdlOptions: {
+		quality: 'highestaudio',
+		highWaterMark: 1 << 25,
+	},
+});
 
 // Find events
 const eventsPath = path.join(__dirname, 'events');
