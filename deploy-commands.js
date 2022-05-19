@@ -10,6 +10,7 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
+	// Comment this out when removing duplicate commands
 	commands.push(command.data.toJSON());
 }
 
@@ -25,7 +26,7 @@ const rest = new REST({ version: '9' }).setToken(process.env.TOKEN);
 		);
 		/* USE WHEN REGISTERING COMMANDS GLOBALLY:
 		await rest.put(
-			Routes.applicationCommands(clientId),
+			Routes.applicationCommands(process.env.CLIENT_ID),
 			{ body: commands },
 		); */
 

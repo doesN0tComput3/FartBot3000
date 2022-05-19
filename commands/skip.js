@@ -14,10 +14,11 @@ module.exports = {
 
 		queue.skip();
 		const embed = new MessageEmbed()
-			.setDescription(`$${currentSong.title} skipped.`)
+			.setDescription(`**[${currentSong.title}](${currentSong.url})** skipped.`)
 			.setColor('BLUE')
 			.setTimestamp()
-			.setThumbnail(currentSong.setThumbnail);
+			.setThumbnail(currentSong.setThumbnail)
+			.setFooter({ text: 'FartBot3000', iconURL: interaction.client.user.avatarURL() });
 		await interaction.reply({ embeds: [embed] });
 	},
 };
