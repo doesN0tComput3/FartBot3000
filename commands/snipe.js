@@ -18,9 +18,11 @@ module.exports = {
 				return interaction.reply('❌ there wasn\'t any messages to snipe sorry broski');
 			}
 
+			console
+
 			const embed = new Discord.MessageEmbed()
 				.setColor('RANDOM')
-				.setAuthor({ text: msg.author, iconURL: msg.authorAvatar })
+				.setAuthor({ name: msg.author, iconURL: msg.authorAvatar })
 				.setDescription(msg.content)
 				.setTimestamp(msg.timestamp)
 				.setFooter({ text: 'FartBot3000', iconURL: interaction.client.user.avatarURL() });
@@ -38,7 +40,7 @@ module.exports = {
 
 			const embed = new Discord.MessageEmbed()
 				.setColor('RANDOM')
-				.setAuthor({ text: msg.author, iconURL: msg.authorAvatar })
+				.setAuthor({ name: msg.author, iconURL: msg.authorAvatar })
 				.addField('Old Message', msg.oldContent, true)
 				.addField('New Message', msg.newContent, true)
 				.setTimestamp(msg.timestamp)
