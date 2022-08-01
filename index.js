@@ -2,6 +2,7 @@
 // Define packages
 const { Intents, Client, Collection } = require('discord.js');
 const dotenv = require('dotenv');
+const keepAlive = require('./server.js')
 dotenv.config();
 const fs = require('node:fs');
 const path = require('node:path');
@@ -46,4 +47,5 @@ client.snipes = new Map();
 client.editSnipes = new Map();
 
 // Login
-client.login(process.env.TOKEN);
+client.login(process.env['TOKEN']);
+keepAlive();
